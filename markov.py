@@ -1,10 +1,5 @@
 import numpy as np
-from tpmatrix import *
-from numpy.random import random_sample
-
-def choose(choices, weights):
-    bins = np.add.accumulate(weights)
-    return choices[np.digitize(random_sample(1), bins)]
+from utils import *
 
 
 class MarkovModel():
@@ -17,10 +12,20 @@ class MarkovModel():
 
     def transition(self):
         self.current_state =  choose(self.states , self.prob)
+        return self.draw()
+
+    def draw(self):
+        return np.random.uniform(self.current_state/ self.N_states, (self.current_state+1)/ self.N_states)
 
 
-mm= MarkovModel(0.5, 0.5, 4)
+mm= MarkovModel(0.5, 0.2, 4)
 
-for i in range(10):
-    mm.transition()
-    print(mm.current_state)
+X=[]
+for i in range(500):
+    X.append(mm.transition())
+
+
+# import matplotlib.pyplot as plt
+# import numpy as np
+# plt.hist(X, bins=mm.N_states, normed= True)
+# plt.show()
