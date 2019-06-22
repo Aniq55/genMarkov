@@ -18,10 +18,12 @@ def getP(mu, sigma, N):
     for i in range(N):
         p.append(integral(i/N, (i+1)/N))
 
-    A= sum(p)
-    p= [x/A for x in p]
+    # p = np.array(p)
+    p= np.array(p)
+    p /= np.float64(p.sum())
+
+    # print(p.sum())
 
     return p
 
-# P= getP(0.5,0.2,4)
-# print(P)
+# P= getP(0.5,0.3,4)
