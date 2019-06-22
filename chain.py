@@ -19,11 +19,19 @@ pp= PoissonProcess(300, 100, 2*np.pi/1200)
 mm= MarkovModel(0.5, 0.2, 4)
 
 
-CHAIN=[]
-CHAIN.append((0,0))
+CHAIN={}
+CHAIN['STATE']=[]
+CHAIN['TIME']=[]
 
-ITERATIONS= 10
+CHAIN['STATE'].append(0)
+CHAIN['TIME'].append(0)
+
+ITERATIONS= 100
 for i in range(ITERATIONS):
-    CHAIN.append( (mm.transition(), pp.interval(CHAIN[-1][1]) ) )
+    CHAIN['STATE'].append(mm.transition())
+    CHAIN['TIME'].append(CHAIN['TIME'][-1] + pp.interval(CHAIN['TIME'][-1]))
 
-print(CHAIN)
+import matplotlib.pyplot as plt
+
+plt.plot(CHAIN['TIME'], CHAIN['STATE'])
+plt.show()
