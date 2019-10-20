@@ -3,6 +3,9 @@ from utils import *
 
 
 class MarkovModel():
+    """
+    Produces a Markov model
+    """
 
     def __init__(self, mu, sigma, N):
         self.prob= getP(mu, sigma, N)
@@ -16,8 +19,6 @@ class MarkovModel():
 
     def draw(self):
         return np.random.uniform(self.current_state/ self.N_states, (self.current_state+1)/ self.N_states)
-
-
 
 
 # import matplotlib.pyplot as plt
