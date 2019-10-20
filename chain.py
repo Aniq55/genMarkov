@@ -7,8 +7,6 @@ class PoissonProcess():
     """
     Initiates a Poisson Process object with given Lambda, beta and omega
     (mean interval, swing parameter and fluctuation frequency respectively).
-
-    The method interval
     """
     def __init__(self, L, B, W):
         self.Lambda= L
@@ -30,14 +28,17 @@ class PoissonProcess():
         return np.random.poisson(self.time_variance(t))
 
 
+# Poisson process with Lambda = 300, beta = 100, omega = 2pi/1200
 pp= PoissonProcess(300, 100, 2*np.pi/1200)
+# Markov model with mu = 0.5, sigma = 0.2 and N = 4
 mm= MarkovModel(0.5, 0.2, 4)
 
-
+# Generate the markov chain
 CHAIN={}
 CHAIN['STATE']=[]
 CHAIN['TIME']=[]
 
+# Initiate the State and Time with 0
 CHAIN['STATE'].append(0)
 CHAIN['TIME'].append(0)
 

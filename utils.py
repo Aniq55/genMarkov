@@ -12,7 +12,7 @@ def getP(mu, sigma, N):
     """
     Returns the probablities (p_i) as defined in the section III, they are used
     to generate the transition probability matrix.
-    
+
     The values mu and sigma are used for obtaining the pdf.
     """
     x = np.linspace(0, 1, 100)

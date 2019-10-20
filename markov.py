@@ -4,7 +4,7 @@ from utils import *
 
 class MarkovModel():
     """
-    Produces a Markov model
+    Produces a Markov model with mu, sigma and N states
     """
 
     def __init__(self, mu, sigma, N):
