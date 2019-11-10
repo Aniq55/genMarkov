@@ -29,7 +29,7 @@ def getP(mu, sigma, N):
     def integral(x1, x2):
         """
         Integrates `normal_distribution_function` (defined above) between x1
-        and x2
+        and x2. This is used tp generate the probabilities.
         """
         res, _ = quad(normal_distribution_function, x1, x2)
         return res

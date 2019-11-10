@@ -14,7 +14,7 @@ class MarkovModel():
         self.states= np.array(list(range(self.N_states)))
 
     def transition(self):
-        self.current_state =  choose(self.states , self.prob)
+        self.current_state = choose(self.states , self.prob)
         return self.current_state
 
     def draw(self):
