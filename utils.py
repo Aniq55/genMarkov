@@ -9,14 +9,28 @@ def choose(choices, weights):
     return choices[np.digitize(random_sample(1), bins)][0]
 
 def getP(mu, sigma, N):
+    """
+    Returns the probablities (p_i) as defined in the section III, they are used
+    to generate the transition probability matrix.
+
+    The values mu and sigma are used for obtaining the pdf.
+    """
     x = np.linspace(0, 1, 100)
     y = scipy.stats.norm.pdf(x, mu, sigma)
 
     def normal_distribution_function(x):
+        """
+        Returns a pdf of a normal distribution function with defined mu and
+        sigma
+        """
         value = scipy.stats.norm.pdf(x, mu, sigma)
         return value
 
     def integral(x1, x2):
+        """
+        Integrates `normal_distribution_function` (defined above) between x1
+        and x2. This is used tp generate the probabilities.
+        """
         res, _ = quad(normal_distribution_function, x1, x2)
         return res
 
