@@ -3,7 +3,7 @@
 ![VR Man](./vr_man.png)
 
 This repository contains companion codes for the research paper:
-*Test-bench for Task Offloading Mechanisms: Modelling the Rewards of Non-stationary Nodes*.
+[*Test-bench for Task Offloading Mechanisms: Modelling the Rewards of Non-stationary Nodes*](https://www.researchgate.net/publication/336775268_Test-bench_for_Task_Offloading_Mechanisms_Modelling_the_Rewards_of_Non-stationary_Nodes).
 
 ## Usage
 
